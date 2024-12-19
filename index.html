@@ -126,14 +126,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        /* عداد التحميلات */
-        .download-counter {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #800000;
-            font-weight: bold;
-        }
-
         /* تعديل dev nawaf */
         .dev-credit {
             position: absolute;
@@ -177,18 +169,10 @@
             <source src="video.mp4" type="video/mp4">
             المتصفح الخاص بك لا يدعم تشغيل الفيديو.
         </video>
-        <button class="download-btn" onclick="updateDownloadCount()">تحميل النشرة</button>
-    </div>
-
-    <!-- عداد التحميلات -->
-    <div class="download-counter">
-        <h3>عدد النشرات المحفوظة:</h3>
-        <span id="downloadCount">0</span>
+        <button class="download-btn" onclick="downloadCard()">تحميل النشرة</button>
     </div>
 
     <script>
-        let downloadCount = 0; // متغير لحساب عدد التحميلات
-
         function generateCard() {
             const name = document.getElementById('username').value.trim();
             const principal = document.getElementById('principal').value.trim();
@@ -206,16 +190,11 @@
             document.getElementById('videoContainer').style.display = 'block';
         }
 
-        function updateDownloadCount() {
-            // تحميل النشرة
+        function downloadCard() {
             const link = document.createElement('a');
-            link.href = 'Image.jpeg'; // تأكد من صحة مسار الملف
+            link.href = 'Image.jpeg';
             link.download = 'النشرة_اليوم_العالمي.png';
             link.click();
-
-            // تحديث العدد على الصفحة
-            downloadCount++;
-            document.getElementById('downloadCount').innerText = downloadCount;
         }
     </script>
 </body>
